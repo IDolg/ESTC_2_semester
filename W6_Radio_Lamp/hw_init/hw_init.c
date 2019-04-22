@@ -51,7 +51,7 @@ void InitButtons(void){
 };
 
 void InitButtonInterruptions(void){
-///111111111111111111111111111111111111111  
+// 1 button  
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
   SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA, EXTI_PinSource1);  
   EXTI_InitTypeDef EXTI_InitStruct;
@@ -69,9 +69,8 @@ void InitButtonInterruptions(void){
   NVIC_InitStruct.NVIC_IRQChannelSubPriority = 0x00;
   NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
   NVIC_Init(&NVIC_InitStruct);
-//////////////////////////222222222222222222222222222  
+// 2 button 
   SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA, EXTI_PinSource2);  
-//  EXTI_InitTypeDef EXTI_InitStruct;
   EXTI_InitStruct.EXTI_Line = EXTI_Line2;
   EXTI_InitStruct.EXTI_LineCmd = ENABLE;
   EXTI_InitStruct.EXTI_Mode = EXTI_Mode_Interrupt;
@@ -80,25 +79,7 @@ void InitButtonInterruptions(void){
   
   NVIC_EnableIRQ(EXTI2_IRQn);
   
-//  NVIC_InitTypeDef NVIC_InitStruct;
   NVIC_InitStruct.NVIC_IRQChannel = EXTI2_IRQn;
-  NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 0x00;
-  NVIC_InitStruct.NVIC_IRQChannelSubPriority = 0x00;
-  NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
-  NVIC_Init(&NVIC_InitStruct);
-//////////////////////////////3333333333333333333333333
-  SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA, EXTI_PinSource3);  
-//  EXTI_InitTypeDef EXTI_InitStruct;
-  EXTI_InitStruct.EXTI_Line = EXTI_Line3;
-  EXTI_InitStruct.EXTI_LineCmd = ENABLE;
-  EXTI_InitStruct.EXTI_Mode = EXTI_Mode_Interrupt;
-  EXTI_InitStruct.EXTI_Trigger = EXTI_Trigger_Rising;
-  EXTI_Init(&EXTI_InitStruct);
-  
-  NVIC_EnableIRQ(EXTI3_IRQn);
-  
-//  NVIC_InitTypeDef NVIC_InitStruct;
-  NVIC_InitStruct.NVIC_IRQChannel = EXTI3_IRQn;
   NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 0x00;
   NVIC_InitStruct.NVIC_IRQChannelSubPriority = 0x00;
   NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
